@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS and HTML Injection</title>
+</head>
+
+<body>
+    <!-- <img src=0 onerror=alert(1)> -->
+    <label for="text-input">Enter your name : </label>
+    <input type="text" id="text-input">
+    <button onclick="SayHi()">Say Hi</button>
+    <br>
+
+    <h1 id="hi-text"></h1>
+
+</body>
+
+<script>
+    function SayHi() {
+
+        name = document.getElementById('text-input').value
+        document.getElementById('hi-text').innerHTML = "Hi " + name
+    }
+</script>
+
+</html>
